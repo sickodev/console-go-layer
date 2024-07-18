@@ -1,7 +1,12 @@
 package main
 
-import "net/http"
+import (
+	"encoding/json"
+	"net/http"
+)
 
 func TalkToSinestro(w http.ResponseWriter, r *http.Request) {
-	print("Talk to Sinestro!!")
+	w.WriteHeader(http.StatusOK)
+	bytes, _ := json.Marshal("Talking to Sinestro")
+	w.Write(bytes)
 }
